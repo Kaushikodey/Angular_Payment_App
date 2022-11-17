@@ -1,0 +1,40 @@
+<div class="jumbotron" style="background-color: skyblue;">
+    <h1 class="display-4 text-center"><b>Payment Detail Register</b></h1>
+</div>
+
+<!-- <div class="row" *ngIf="IsShown==false">
+    <div class="col-md-12">
+        <app-payment-detail-form>
+
+        </app-payment-detail-form>
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="col-md-6">
+        <app-payment-detail-form></app-payment-detail-form>
+    </div>
+    <div class="col-md-6">
+        <!-- <span>List of Payment Details</span> -->
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Card Owner</th>
+                    <th>Card Number</th>
+                    <th>Exp. Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>                
+                <tr *ngFor="let item of service.list">                                     
+                    <td (click)="populateForm(item)">{{item.cardOwnerName}}</td>
+                    <td>{{item.cardNumber}}</td>
+                    <td>{{item.expirationDate}}</td>
+                    <td>
+                        <i class="fa fa-trash-alt fa-lg text-danger" (click)="deleterRecord(item.paymentDetailId)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
